@@ -17,6 +17,31 @@
 
   .player-body {
     .bingo-board {
+      .bingo-rows {
+        margin: 10px;
+
+        &.inactive {
+          opacity: 0.2;
+        }
+      }
+    }
+
+    .result {
+      font: 100px bold;
+      margin: 10px;
+      &.DRAW {
+        color: gray;
+      }
+      &.WIN {
+        color: lime;
+      }
+      &.LOSE {
+        color: red;
+      }
+    }
+
+    .current-bingo {
+      font: 100px bold;
       margin: 10px;
     }
   }

@@ -5,10 +5,10 @@ import BingoCell from "./BingoCell";
 
 class BingoRow extends Component {
   render() {
-    const {nums} = this.props;
+    const {row,nums,player} = this.props;
     return (
       <div className='bingo-row'>
-        {_.map(nums,(num,i)=><BingoCell key={i} num={num}/>)}
+        {_.map(nums,(num,i)=><BingoCell key={i} idx={row*5 + i} player={player} num={num}/>)}
       </div>
     );
   }

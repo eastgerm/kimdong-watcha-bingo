@@ -6,4 +6,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.active {
+    &:hover {
+      background-color: orange;
+      cursor: pointer;
+    }
+  }
+
+  &.selected {
+    background-color: gray;
+  }
 }

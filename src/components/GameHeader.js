@@ -9,7 +9,6 @@ class GameHeader extends Component {
     return (
       <div className='game-header'>
         <span className='title'>WATCHA BINGO</span>
-        {console.log(started)}
         <button className='start-btn' onClick={()=>{
           gameStart();
         }}>{!started ? '게임 시작' : '게임 재시작'}</button>

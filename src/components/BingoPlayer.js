@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 
 class BingoPlayer extends Component {
   render() {
-    const {player} = this.props;
-    const {started,player1Nums,player2Nums} = this.props;
+    const {player,bingo,result} = this.props;
+    const {started,player1Nums,player2Nums,gameTurn,gameSet} = this.props;
 
     return (
       <div className='bingo-player'>
@@ -18,11 +18,23 @@ class BingoPlayer extends Component {
           {
             started &&
             <div className='bingo-board'>
-              <BingoRow nums={_.slice(player === '1P' ? player1Nums : player2Nums,0,5)}/>
-              <BingoRow nums={_.slice(player === '1P' ? player1Nums : player2Nums,5,10)}/>
-              <BingoRow nums={_.slice(player === '1P' ? player1Nums : player2Nums,10,15)}/>
-              <BingoRow nums={_.slice(player === '1P' ? player1Nums : player2Nums,15,20)}/>
-              <BingoRow nums={_.slice(player === '1P' ? player1Nums : player2Nums,20,25)}/>
+              {console.log(gameSet)}
+              <div className={`bingo-rows ${gameSet ? 'inactive' : gameTurn===player ? null : 'inactive'}`}>
+                <BingoRow row={0} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,0,5)}/>
+                <BingoRow row={1} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,5,10)}/>
+                <BingoRow row={2} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,10,15)}/>
+                <BingoRow row={3} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,15,20)}/>
+                <BingoRow row={4} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,20,25)}/>
+              </div>
+              {
+                result === 'DRAW' || result === 'WIN' || result === 'LOSE' ?
+                  <div className={`result ${result}`}>
+                    {result}
+                  </div> :
+                  <div className='current-bingo'>
+                    {`${bingo} bingo!`}
+                  </div>
+              }
             </div>
           }
         </div>
@@ -35,7 +47,9 @@ const mapStateToProps = state => {
   return {
     started: state.gameStart,
     player1Nums: state.player1Nums,
-    player2Nums: state.player2Nums
+    player2Nums: state.player2Nums,
+    gameTurn: state.gameTurn,
+    gameSet: state.gameSet
   };
 };
 
