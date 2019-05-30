@@ -16,6 +16,8 @@
   }
 
   .player-body {
+    position: relative;
+
     .bingo-board {
       .bingo-rows {
         margin: 10px;
@@ -27,7 +29,10 @@
     }
 
     .result {
-      font: 100px bold;
+      position: absolute;
+      top: 120px;
+      left: 60px;
+      font: 150px bold;
       margin: 10px;
       &.DRAW {
         color: gray;

@@ -37,7 +37,6 @@ class GameBody extends Component {
     const player1Score = this._judgeBingo(player1Bingos);
     const player2Score = this._judgeBingo(player2Bingos);
     const gameOver = player1Score >= 5 || player2Score >= 5;
-    console.log(gameOver);
     if(gameOver) {
       gameSet();
     }
