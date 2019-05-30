@@ -1,0 +1,13 @@
+.game-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 20px;
+  }
+  .start-btn {
+    font-size: 20px;
+  }
+}

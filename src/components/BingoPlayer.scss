@@ -1,0 +1,23 @@
+.bingo-player {
+  flex: 1;
+  height: 80vh;
+  border: solid 1px red;
+
+  .player-header {
+    .player {
+      text-align: center;
+      font-weight: bold;
+      background-color: yellow;
+
+      &.number2P {
+        background-color: aqua;
+      }
+    }
+  }
+
+  .player-body {
+    .bingo-board {
+      margin: 10px;
+    }
+  }
+}

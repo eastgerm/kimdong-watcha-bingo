@@ -1,0 +1,33 @@
+import React,{Component} from 'react';
+import './GameHeader.scss';
+import {connect} from 'react-redux';
+import {gameStart} from "../actions/actionCreater";
+
+class GameHeader extends Component {
+  render() {
+    const {started,gameStart} = this.props;
+    return (
+      <div className='game-header'>
+        <span className='title'>WATCHA BINGO</span>
+        {console.log(started)}
+        <button className='start-btn' onClick={()=>{
+          gameStart();
+        }}>{!started ? '게임 시작' : '게임 재시작'}</button>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    started: state.gameStart
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    gameStart: () => dispatch(gameStart())
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(GameHeader);
