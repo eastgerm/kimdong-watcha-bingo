@@ -8,7 +8,7 @@ class GameHeader extends Component {
     const {started,gameStart} = this.props;
     return (
       <div className='game-header'>
-        <span className='title'>WATCHA BINGO</span>
+        <span className='title'>KIMDONG BINGO</span>
         <button className='start-btn' onClick={()=>{
           gameStart();
         }}>{!started ? '게임 시작' : '게임 재시작'}</button>

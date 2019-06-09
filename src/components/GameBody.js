@@ -37,9 +37,8 @@ class GameBody extends Component {
     const player1Score = this._judgeBingo(player1Bingos);
     const player2Score = this._judgeBingo(player2Bingos);
     const gameOver = player1Score >= 5 || player2Score >= 5;
-    if(gameOver) {
-      gameSet();
-    }
+    if(gameOver) gameSet();
+
     return (
       <div className='game-body'>
         <BingoPlayer player='1P' bingo={player1Score} result={player1Score >= 5 && player2Score >= 5 ? 'DRAW' : player1Score >= 5 ? 'WIN' : player2Score >= 5 ? "LOSE" : 'YET'}/>

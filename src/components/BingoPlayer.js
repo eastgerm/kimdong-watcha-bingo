@@ -18,7 +18,6 @@ class BingoPlayer extends Component {
           {
             started &&
             <div className='bingo-board'>
-              {console.log(gameSet)}
               <div className={`bingo-rows ${gameSet ? 'inactive' : gameTurn===player ? null : 'inactive'}`}>
                 <BingoRow row={0} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,0,5)}/>
                 <BingoRow row={1} player={player} nums={_.slice(player === '1P' ? player1Nums : player2Nums,5,10)}/>
